@@ -11,9 +11,18 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker [dateClass]="dateClass" disabled="false" #picker></mat-datepicker>
     </mat-form-field>
-    <mat-card-subtitle dir="rtl">{{events}}</mat-card-subtitle>
-    <br/>
-    <mat-card-title dir="rtl">سن حاملگی :</mat-card-title>
-    {{hdate}}
+    <mat-card-subtitle>{{events}}</mat-card-subtitle>
+    <br />
+    <mat-card-title>سن حاملگی :</mat-card-title>
+    <br />
+    <mat-card-title>{{hdate}}</mat-card-title>
+    <br />
+    <br />
+    <mat-card-title>تاریخ زایمان :</mat-card-title>
+    <br />
+    <mat-card-title>{{edate}}</mat-card-title>
+    <br />
+    <br />
+    <mat-card-subtitle>توجه: این محاسبات در صورت منظم بودن قاعدگی ها دارای ارزش هستند. البته ممکن است تا یک هفته خطا در محاسبات ایجاد شود.</mat-card-subtitle>
   </mat-card-content>
 </mat-card>

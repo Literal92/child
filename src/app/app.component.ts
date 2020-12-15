@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'child';
   events: any;
   hdate: any;
+  edate: any;
 
   dateClass = (d: Date): MatCalendarCellCssClasses => {
     const date = d.getDate();
@@ -18,15 +19,21 @@ export class AppComponent {
 
   addEvent(event: MatDatepickerInputEvent<Date>) {
     this.events = moment(event.value, 'YYYY/MM/DD').locale('fa').format('YYYY/MM/DD');
-    let time = new Date().getTime() - event.value.getTime();
-    let Difference_In_Days = time / (1000 * 3600 * 24);
-    console.log(Difference_In_Days.toFixed(0));
-    this.hdate = this.dayToMonth(time, Difference_In_Days);
+    let diff = Math.floor(new Date().getTime() - event.value.getTime());
+    let day = diff / (1000 * 3600 * 24);
+    this.hdate = this.dayToMonth(day);
+    let minus9month = new Date(event.value.setMonth(event.value.getMonth() + 9));
+    this.edate = moment(minus9month, 'YYYY/MM/DD').locale('fa').format('YYYY/MM/DD');
   }
 
-  dayToMonth(diff: any,day: any): string {
-    var days = Math.floor(diff/day);
-    var months = Math.floor(days/31);
-    return days + " روز " + months + " ماه ";
+  dayToMonth(day: any): string {
+    var months = Math.floor(day / 31);
+    var days =  Math.floor(day - months * 31);
+    if(months > 0 && months <= 9)
+      return days + " روز " + months + " ماه ";
+    else if(months == 0)
+      return days + " روز "
+    else if(months > 9 || months < 0)
+      return "تاریخ با دقت انتخاب کنید"
   }
 }
