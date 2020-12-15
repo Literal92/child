@@ -1,0 +1,27 @@
+.example-card {
+  max-width: 400px;
+  font-family: Samim;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0 auto;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  font-family: 'Samim';
+  font-size: large;
+}
+
+.example-custom-date-class {
+  background: orange;
+  border-radius: 100%;
+}
+
+.example-full-width {
+  width: 100% !important;
+}
